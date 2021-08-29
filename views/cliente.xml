@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista Arbol de la Calificación -->
+        <record id="view_taller_cliente_tree" model="ir.ui.view">
+            <field name="name">taller.cliente.tree</field>
+            <field name="model">taller.cliente</field>
+            <field name="arch" type="xml">
+                <tree string="Clientes" >
+                    <field name="name" />
+                    <field name="dni" />
+                    <field name="mail" />
+                    <field name="responsabilidad_iva" />
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

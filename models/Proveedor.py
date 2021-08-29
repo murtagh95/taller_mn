@@ -29,7 +29,14 @@ class TelefonoProveedor(models.Model):
 
     proveedor = fields.Many2one('taller.proveedor')
     numero = fields.Integer(string='Número', required=True)
-    name = fields.Char(related='numero')
+    name = fields.Char(compute='_calcular_nombre')
+
+    def _calcular_nombre(self):
+        """ Se calcula el nombre según el número ingresado. """
+        if self.numero:
+            self.name = str(self.numero)
+        else:
+            self.name = ""
 
 
 class MailProveedor(models.Model):
@@ -38,4 +45,11 @@ class MailProveedor(models.Model):
 
     proveedor = fields.Many2one('taller.proveedor')
     mail = fields.Integer(string='Mail', required=True)
-    name = fields.Char(related='mail')
+    name = fields.Char(compute='_calcular_nombre')
+
+    def _calcular_nombre(self):
+        """ Se calcula el nombre según el mail. """
+        if self.mail:
+            self.name = str(self.mail)
+        else:
+            self.name = ""

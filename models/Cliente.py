@@ -27,4 +27,11 @@ class Telefono(models.Model):
 
     cliente = fields.Many2one('taller.cliente')
     numero = fields.Integer(string='Número')
-    name = fields.Char(related='numero')
+    name = fields.Char(compute='_calcular_nombre')
+
+    def _calcular_nombre(self):
+        """ Se calcula el nombre según el número ingresado. """
+        if self.numero:
+            self.name = str(self.numero)
+        else:
+            self.name = ""

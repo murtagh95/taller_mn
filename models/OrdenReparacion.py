@@ -31,4 +31,19 @@ class OrdenReparacion(models.Model):
         string='Empleados',
         required=True
     )
-    name = fields.Char(related='estado')
+    ingreso_vehiculo_id = fields.One2many(
+        'taller.ingreso_vehiculo',
+        'orden_reparacion_id',
+        string='Ingreso Vehiculo'
+    )
+    name = fields.Char(compute='_calcular_nombre')
+
+    def _calcular_nombre(self):
+        """ Se calcula el nombre según el estado. """
+        estado = self.estado or ""
+        cliente = self.ingreso_vehiculo_id[0].cliente_id.name or ""
+
+        if self.estado:
+            self.name = str(estado) + " - " + str(cliente)
+        else:
+            self.name = ""

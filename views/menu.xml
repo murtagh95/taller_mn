@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ACTION WINDOWS de CLIENTE -->
+        <record id="action_taller_cliente" model="ir.actions.act_window">
+            <field name="name">Cliente</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">taller.cliente</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_taller_cliente_tree" />
+        </record>
+
+
+        <menuitem id="taller" name="Taller" sequence="1" web_icon="repositorio_aden,static/description/menu.png" />
+        <menuitem id="taller_cliente_menu"
+                  name="Cliente"
+                  parent="taller" sequence="1"
+                  action="action_taller_cliente" />
+
+    </data>
+</odoo>

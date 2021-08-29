@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Taller MN",
+    'name': "Taller",
 
     'summary': """ Modulo creado para manejar un sistema informático para 
      Taller Mecánico. """,
@@ -15,5 +15,14 @@
     'version': '0.1',
     'installable': True,
     'application': True,
+    'data': [
+              'security/ir.model.access.csv',
+              'views/cliente.xml',
+              'views/menu.xml',
+
+
+
+
+    ],
 
 }
