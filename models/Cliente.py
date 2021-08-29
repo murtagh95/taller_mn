@@ -28,7 +28,7 @@ class Telefono(models.Model):
     _description = 'Cliente Teléfono'
 
     cliente = fields.Many2one('taller.cliente')
-    numero = fields.Integer(string='Número')
+    numero = fields.Char(string='Número')
     name = fields.Char(compute='_calcular_nombre')
 
     def _calcular_nombre(self):

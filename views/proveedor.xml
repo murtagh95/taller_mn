@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista Arbol del PROVEEDOR -->
+        <record id="view_taller_proveedor_tree" model="ir.ui.view">
+            <field name="name">taller.proveedor.tree</field>
+            <field name="model">taller.proveedor</field>
+            <field name="arch" type="xml">
+                <tree string="Proveedor">
+                    <field name="name"/>
+                    <field name="cuit"/>
+                    <field name="mail"/>
+                    <field name="domicilio"/>
+                    <field name="razon_social"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista Formulario del PROVEEDOR -->
+        <record id="view_taller_proveedor_form" model="ir.ui.view">
+            <field name="name">taller.proveedor.form</field>
+            <field name="model">taller.proveedor</field>
+            <field name="arch" type="xml">
+                <form string="Proveedor">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+
+                        <group>
+                            <group>
+                                <field name="cuit"/>
+                                <field name="domicilio"/>
+                                <field name="razon_social"/>
+                            </group>
+                            <group>
+                                <field name="mail">
+                                    <tree editable="bottom">
+                                        <field name="correo" widget="mail"/>
+                                    </tree>
+                                </field>
+
+                            </group>
+                            <group>
+                                <field name="telefono">
+                                    <tree editable="bottom">
+                                        <field name="numero" widget="phone"/>
+                                    </tree>
+                                </field>
+
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista Búsqueda del PROVEEDOR -->
+        <record id="view_taller_proveedor_search" model="ir.ui.view">
+            <field name="name">taller.proveedor.search</field>
+            <field name="model">taller.proveedor</field>
+            <field name="arch" type="xml">
+                <search string="Búsqueda Proveedor">
+                    <field name="name" string="Proveedor"
+                           filter_domain="[('name','ilike',self)]"/>
+                    <field name="mail" string="Mail"
+                           filter_domain="[('mail.mail','ilike',self)]"/>
+                    <field name="cuit" string="CUIT"
+                           filter_domain="[('cuit','ilike',self)]"/>
+                    <field name="telefono" string="Teléfono"
+                           filter_domain="[('telefono.numero','ilike',self)]"/>
+
+
+                    <group expand='0' string='Agrupar por...'>
+                        <filter string='Razon Social' name="razon_social"
+                                context="{'group_by': 'razon_social'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,4 +1,4 @@
-from odoo import fields, models, api
+from odoo import fields, models
 
 
 class Proveedor(models.Model):
@@ -6,14 +6,14 @@ class Proveedor(models.Model):
     _description = 'Proveedor'
 
     name = fields.Char(string='Nombre', required=True)
-    cuit = fields.Integer(string='CUIT', required=True)
+    cuit = fields.Char(string='CUIT', required=True)
     domicilio = fields.Char(string='Domicilio', required=True)
     razon_social = fields.Char(string='Razon Social', required=True)
     telefono = fields.One2many('taller.telefono_proveedor', 'proveedor',
                                string='Teléfonos',
                                required=True)
     mail = fields.One2many('taller.mail_proveedor', 'proveedor',
-                           string='Teléfonos',
+                           string='Mail',
                            required=True)
 
     # Restricciones SQL
@@ -28,7 +28,7 @@ class TelefonoProveedor(models.Model):
     _description = 'Teléfono Proveedor'
 
     proveedor = fields.Many2one('taller.proveedor')
-    numero = fields.Integer(string='Número', required=True)
+    numero = fields.Char(string='Número', required=True)
     name = fields.Char(compute='_calcular_nombre')
 
     def _calcular_nombre(self):
@@ -45,7 +45,7 @@ class MailProveedor(models.Model):
     _description = 'Mail Proveedor'
 
     proveedor = fields.Many2one('taller.proveedor')
-    mail = fields.Integer(string='Mail', required=True)
+    correo = fields.Char(string='Mail', required=True)
     name = fields.Char(compute='_calcular_nombre')
 
     def _calcular_nombre(self):

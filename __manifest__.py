@@ -21,6 +21,7 @@
               'views/vehiculo.xml',
               'views/empleado.xml',
               'views/planilla_horaria.xml',
+              'views/proveedor.xml',
               'views/menu.xml',
 
 
