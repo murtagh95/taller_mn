@@ -18,6 +18,7 @@
     'data': [
               'security/ir.model.access.csv',
               'views/cliente.xml',
+              'views/vehiculo.xml',
               'views/menu.xml',
 
 

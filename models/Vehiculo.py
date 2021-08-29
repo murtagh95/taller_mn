@@ -24,12 +24,25 @@ class Vehiculo(models.Model):
          ('coupe', 'Coupé'),
          ('berlina', 'Berlina'),
          ('util', 'Utilitaria')],
-        string='Tipo',
-        required=True
+        string='Tipo'
     )
     patente = fields.Char(string='Patente', required=True)
+    name = fields.Char(compute='_calcular_nombre')
 
     _sql_constraints = [
         ('unique_patente', 'unique (patente)',
          'No se debe repetir el número de patente')
     ]
+
+    def _calcular_nombre(self):
+        """ Se calcula el nombre uniendo la marca más el modelo más la
+        patente. """
+        for rec in self:
+            modelo = rec.modelo or ""
+            marca = rec.marca or ""
+            patente = rec.patente or ""
+            if modelo or marca or patente:
+                rec.name = str(modelo) + " - " + str(marca) + " - " + \
+                           str(patente)
+            else:
+                rec.name = ""

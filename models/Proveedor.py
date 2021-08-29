@@ -33,10 +33,11 @@ class TelefonoProveedor(models.Model):
 
     def _calcular_nombre(self):
         """ Se calcula el nombre según el número ingresado. """
-        if self.numero:
-            self.name = str(self.numero)
-        else:
-            self.name = ""
+        for rec in self:
+            if rec.numero:
+                rec.name = str(rec.numero)
+            else:
+                rec.name = ""
 
 
 class MailProveedor(models.Model):
@@ -49,7 +50,8 @@ class MailProveedor(models.Model):
 
     def _calcular_nombre(self):
         """ Se calcula el nombre según el mail. """
-        if self.mail:
-            self.name = str(self.mail)
-        else:
-            self.name = ""
+        for rec in self:
+            if rec.mail:
+                rec.name = str(rec.mail)
+            else:
+                rec.name = ""

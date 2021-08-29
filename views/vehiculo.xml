@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista Arbol del VEHICULOS -->
+        <record id="view_taller_vehiculo_tree" model="ir.ui.view">
+            <field name="name">taller.vehiculo.tree</field>
+            <field name="model">taller.vehiculo</field>
+            <field name="arch" type="xml">
+                <tree string="Vehiculo">
+                    <field name="patente"/>
+                    <field name="marca"/>
+                    <field name="modelo"/>
+                    <field name="color"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista Formulario del VEHICULOS -->
+        <record id="view_taller_vehiculo_form" model="ir.ui.view">
+            <field name="name">taller.vehiculo.form</field>
+            <field name="model">taller.vehiculo</field>
+            <field name="arch" type="xml">
+                <form string="Vehiculo">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="patente"/>
+                                <field name="marca"/>
+                                <field name="modelo"/>
+                                <field name="nro_motor"/>
+                            </group>
+                            <group>
+                                <field name="kilometraje"/>
+                                <field name="anio"/>
+                                <field name="color"/>
+                                <field name="tipo"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Dueño">
+                                <field name="cliente">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="dni"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Vista Kanban del VEHICULOS -->
+        <record id="view_taller_vehiculo_kanban" model="ir.ui.view">
+            <field name="name">taller.vehiculo.kanban</field>
+            <field name="model">taller.vehiculo</field>
+            <field name="arch" type="xml">
+                <kanban string="Vehiculo"
+                        class="o_emphasize_colors o_kanban_dashboard o_slide_kanban breadcrumb_item active"
+                        edit="false" sample="1">
+                    <field name="name"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_card_header">
+                                    <div class="o_primary">
+                                        <a type="edit" class="mr-auto">
+                                            <span><field name="name" class="o_primary"/></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="container o_kanban_card_content mt5">
+                                    <div class="row mb16">
+                                        <div class="col-6 o_kanban_primary_right">
+                                            <div class="d-flex">
+                                                <a class="mr-auto">Patente:</a>
+                                                <span><field name="patente"/></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6 o_kanban_primary_right">
+                                            <div class="d-flex">
+                                                <a class="mr-auto">Modelo:</a>
+                                                <span><field name="modelo"/></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb16">
+                                        <div class="col-6 o_kanban_primary_right">
+                                            <div class="d-flex">
+                                                <a class="mr-auto">Marca:</a>
+                                                <span><field name="marca"/></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6 o_kanban_primary_right">
+                                            <div class="d-flex">
+                                                <a class="mr-auto">Año:</a>
+                                                <span><field name="anio"/></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <!-- Vista Búsqueda del VEHICULOS -->
+        <record id="view_taller_vehiculo_search" model="ir.ui.view">
+            <field name="name">taller.vehiculo.search</field>
+            <field name="model">taller.vehiculo</field>
+            <field name="arch" type="xml">
+                <search string="Búsqueda Vehiculo">
+                    <field name="patente" string="Patente"
+                           filter_domain="[('patente','ilike',self)]"/>
+                    <field name="marca" string="Marca"
+                           filter_domain="[('marca','ilike',self)]"/>
+                    <field name="modelo" string="Modelo"
+                           filter_domain="[('modelo','ilike',self)]"/>
+                    <field name="anio" string="Año"
+                           filter_domain="[('anio','ilike',self)]"/>
+                    <separator/>
+                    <filter name="filtro_sedan" help="Sedan"
+                            domain="[('tipo','=', 'sedan')]"/>
+                    <filter name="filtro_camioneta" help="Camioneta"
+                            domain="[('tipo','=', 'camioneta')]"/>
+                    <filter name="filtro_utilitaria" help="Utilitaria"
+                            domain="[('tipo','=', 'util')]"/>
+                    <filter name="filtro_berlina" help="Berlina"
+                            domain="[('tipo','=', 'berlina')]"/>
+                    <filter name="filtro_coupe" help="Coupé"
+                            domain="[('tipo','=', 'coupe')]"/>
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>

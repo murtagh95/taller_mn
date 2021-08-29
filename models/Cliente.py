@@ -22,6 +22,7 @@ class Cliente(models.Model):
          'No se debe repetir el número de DNI')
     ]
 
+
 class Telefono(models.Model):
     _name = 'taller.cliente_telefono'
     _description = 'Cliente Teléfono'
@@ -32,7 +33,8 @@ class Telefono(models.Model):
 
     def _calcular_nombre(self):
         """ Se calcula el nombre según el número ingresado. """
-        if self.numero:
-            self.name = str(self.numero)
-        else:
-            self.name = ""
+        for rec in self:
+            if rec.numero:
+                rec.name = str(rec.numero)
+            else:
+                rec.name = ""

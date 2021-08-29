@@ -20,7 +20,7 @@
             <field name="name">taller.cliente.form</field>
             <field name="model">taller.cliente</field>
             <field name="arch" type="xml">
-                <form string="Progreso Alumnos" create="false" delete="false">
+                <form string="Cliente">
                     <sheet>
                         <group>
                             <group>
@@ -29,13 +29,22 @@
                                 <field name="mail" />
                             </group>
                             <group>
+                                <field name="domicilio" />
                                 <field name="responsabilidad_iva" />
-                                <field name="telefono" widget="one2many" />
                             </group>
-                            <notebook>
+                            <group>
+                                <separator string="Teléfonos"/>
+                                 <field name="telefono">
+                                    <tree editable="bottom">
+                                        <field name="numero" />
+                                    </tree>
+                                </field>
+                            </group>
+                        </group>
+                        <notebook>
                                 <page string="Vehiculos">
                                     <field name="vehiculos_ids">
-                                        <tree editable="bottom">
+                                        <tree  editable="bottom" create="false" delete="false" >
                                             <field name="patente" />
                                             <field name="marca" />
                                             <field name="modelo" />
@@ -47,7 +56,6 @@
                                     </field>
                                 </page>
                             </notebook>
-                        </group>
                     </sheet>
                 </form>
             </field>
@@ -67,7 +75,7 @@
                                 <div class="o_kanban_card_header">
                                     <div class="o_primary">
                                         <a type="edit" class="mr-auto">
-                                            <span><field name="name" class="o_primary"/></span>
+                                            <span>Nombre:  <field name="name" class="o_primary"/></span>
                                         </a>
                                     </div>
                                 </div>
@@ -97,7 +105,7 @@
 
 
 
-        <!-- Vista Búsqueda del Progreso alumno -->
+        <!-- Vista Búsqueda del CLIENTE -->
         <record id="view_taller_cliente_search" model="ir.ui.view">
             <field name="name">taller.cliente.search</field>
             <field name="model">taller.cliente</field>
@@ -105,11 +113,11 @@
                 <search string="Búsqueda Cliente">
                     <field name="name" string="Cliente" filter_domain="['|',('name','ilike',self),('dni','ilike', self),('mail','ilike', self)]"/>
                     <separator/>
-                    <filter name="filtro_scorm" help="Con sedan" domain="[('vehiculos_ids.tipo','=', 'sedan')]"/>
-                    <filter name="filtro_evaluacion_auto" help="Con camioneta" domain="[('vehiculos_ids.tipo','=', 'camioneta')]"/>
-                    <filter name="filtro_evaluacion_presenta" help="Con utilitaria" domain="[('vehiculos_ids.tipo','=', 'util')]"/>
-                    <filter name="filtro_evaluacion_presenta" help="Con utilitaria" domain="[('vehiculos_ids.tipo','=', 'coupe')]"/>
-                    <filter name="filtro_evaluacion_presenta" help="Con utilitaria" domain="[('vehiculos_ids.tipo','=', 'berlina')]"/>
+                    <filter name="filtro_vehiculo_sedan" help="Con sedan" domain="[('vehiculos_ids.tipo','=', 'sedan')]"/>
+                    <filter name="filtro_vehiculo_camioneta" help="Con camioneta" domain="[('vehiculos_ids.tipo','=', 'camioneta')]"/>
+                    <filter name="filtro_vehiculo_util" help="Con utilitaria" domain="[('vehiculos_ids.tipo','=', 'util')]"/>
+                    <filter name="filtro_vehiculo_coupe" help="Con Coupé" domain="[('vehiculos_ids.tipo','=', 'coupe')]"/>
+                    <filter name="filtro_vehiculo_berlina" help="Con Berlina" domain="[('vehiculos_ids.tipo','=', 'berlina')]"/>
                 </search>
             </field>
         </record>

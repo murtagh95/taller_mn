@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 admin_taller_cliente,access taller.cliente,model_taller_cliente,base.group_user,1,1,1,1
+admin_taller_cliente_telefono,access taller.cliente_telefono,model_taller_cliente_telefono,base.group_user,1,1,1,1
+admin_taller_vehiculo,access taller.vehiculo,model_taller_vehiculo,base.group_user,1,1,1,1
