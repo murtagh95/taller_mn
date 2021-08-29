@@ -19,10 +19,22 @@
             <field name="view_id" ref="view_taller_vehiculo_tree" />
         </record>
 
+        <!-- ACTION WINDOWS de EMPLEADO -->
+        <record id="action_taller_empleado" model="ir.actions.act_window">
+            <field name="name">Empleado</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">taller.empleado</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="view_id" ref="view_taller_empleado_tree" />
+        </record>
+
 
         <menuitem id="taller_main" name="Taller" sequence="1" web_icon="repositorio_aden,static/description/menu.png" />
 
-        <menuitem id="taller_cliente" name="Cliente" parent="taller_main" sequence="1" />
+        <menuitem id="taller_cliente" name="Clientes" parent="taller_main" sequence="1" />
+        <menuitem id="taller_empleado" name="Empleados" parent="taller_main" sequence="1"/>
+
+        <!-- MENU CLIENTE -->
         <menuitem id="taller_cliente_menu"
                   name="Cliente"
                   parent="taller_cliente" sequence="1"
@@ -31,6 +43,16 @@
                   name="Vehiculo"
                   parent="taller_cliente" sequence="1"
                   action="action_taller_vehiculo" />
+
+        <!-- MENU EMPLEADO -->
+        <menuitem id="taller_empleado_menu"
+                  name="Empleado"
+                  parent="taller_empleado" sequence="1"
+                  action="action_taller_empleado" />
+<!--        <menuitem id="taller_vehiculo_menu"-->
+<!--                  name="Vehiculo"-->
+<!--                  parent="taller_cliente" sequence="1"-->
+<!--                  action="action_taller_vehiculo" />-->
 
     </data>
 </odoo>

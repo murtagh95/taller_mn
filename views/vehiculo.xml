@@ -137,6 +137,12 @@
                             domain="[('tipo','=', 'berlina')]"/>
                     <filter name="filtro_coupe" help="Coupé"
                             domain="[('tipo','=', 'coupe')]"/>
+
+                    <group expand='0' string='Agrupar por...'>
+                        <filter string='Tipo' name="tipo" context="{'group_by': 'tipo'}"/>
+                        <filter string='Modelo' name="modelo" context="{'group_by': 'modelo'}"/>
+                        <filter string='Año' name="anio" context="{'group_by': 'anio'}"/>
+                    </group>
                 </search>
             </field>
         </record>

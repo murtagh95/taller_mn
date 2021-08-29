@@ -19,6 +19,7 @@
               'security/ir.model.access.csv',
               'views/cliente.xml',
               'views/vehiculo.xml',
+              'views/empleado.xml',
               'views/menu.xml',
 
 

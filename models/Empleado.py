@@ -6,10 +6,11 @@ class Empleado(models.Model):
     _description = 'Empleado'
 
     name = fields.Char(string='Nombre', required=True)
+    imagen = fields.Binary(string="Imagen")
     mail = fields.Char(string='Mail', required=True)
     domicilio = fields.Char(string='Domicilio', required=True)
     telefono = fields.Integer(string='Teléfono', required=True)
-    cuil = fields.Integer(string='CUIL', required=True)
+    cuil = fields.Char(string='CUIL', required=True)
     tipo = fields.Selection([
         ('admin', 'Administrativo/a'),
         ('ayuda', 'Ayudante'),
