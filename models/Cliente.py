@@ -12,8 +12,9 @@ class Cliente(models.Model):
     responsabilidad_iva = fields.Char(string='Responsibilidad IVA')
     telefono = fields.One2many('taller.cliente_telefono', 'cliente',
                                string='Teléfonos')
-    auto = fields.One2many('taller.vehiculo', 'cliente',
-                           string='Vehículos')
+    vehiculos_ids = fields.One2many('taller.vehiculo',
+                                    'cliente',
+                                    string='Vehículos')
 
     # Restricciones SQL
     _sql_constraints = [

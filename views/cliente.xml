@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- Vista Arbol de la Calificación -->
+        <!-- Vista Arbol del CLIENTE -->
         <record id="view_taller_cliente_tree" model="ir.ui.view">
             <field name="name">taller.cliente.tree</field>
             <field name="model">taller.cliente</field>
@@ -12,6 +12,105 @@
                     <field name="mail" />
                     <field name="responsabilidad_iva" />
                 </tree>
+            </field>
+        </record>
+
+        <!-- Vista Formulario del CLIENTE -->
+        <record id="view_taller_cliente_form" model="ir.ui.view">
+            <field name="name">taller.cliente.form</field>
+            <field name="model">taller.cliente</field>
+            <field name="arch" type="xml">
+                <form string="Progreso Alumnos" create="false" delete="false">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="dni" />
+                                <field name="mail" />
+                            </group>
+                            <group>
+                                <field name="responsabilidad_iva" />
+                                <field name="telefono" widget="one2many" />
+                            </group>
+                            <notebook>
+                                <page string="Vehiculos">
+                                    <field name="vehiculos_ids">
+                                        <tree editable="bottom">
+                                            <field name="patente" />
+                                            <field name="marca" />
+                                            <field name="modelo" />
+                                            <field name="nro_motor" />
+                                            <field name="kilometraje" />
+                                            <field name="color" />
+                                            <field name="tipo" />
+                                        </tree>
+                                    </field>
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Vista Kanban del CLIENTE -->
+        <record id="view_taller_cliente_kanban" model="ir.ui.view">
+            <field name="name">taller.cliente.kanban</field>
+            <field name="model">taller.cliente</field>
+            <field name="arch" type="xml">
+                <kanban string="Clientes" class="o_emphasize_colors o_kanban_dashboard o_slide_kanban breadcrumb_item active" edit="false" sample="1">
+                    <field name="name" />
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_card_header">
+                                    <div class="o_primary">
+                                        <a type="edit" class="mr-auto">
+                                            <span><field name="name" class="o_primary"/></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="container o_kanban_card_content mt5">
+                                    <div class="row mb16">
+                                        <div class="col-6 o_kanban_primary_right">
+                                            <div class="d-flex" >
+                                                <a class="mr-auto">Mail:</a>
+                                                <span><field name="mail"/></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6 o_kanban_primary_right">
+                                            <div class="d-flex" >
+                                                <a class="mr-auto">DNI:</a>
+                                                <span><field name="dni"/></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+
+        <!-- Vista Búsqueda del Progreso alumno -->
+        <record id="view_taller_cliente_search" model="ir.ui.view">
+            <field name="name">taller.cliente.search</field>
+            <field name="model">taller.cliente</field>
+            <field name="arch" type="xml">
+                <search string="Búsqueda Cliente">
+                    <field name="name" string="Cliente" filter_domain="['|',('name','ilike',self),('dni','ilike', self),('mail','ilike', self)]"/>
+                    <separator/>
+                    <filter name="filtro_scorm" help="Con sedan" domain="[('vehiculos_ids.tipo','=', 'sedan')]"/>
+                    <filter name="filtro_evaluacion_auto" help="Con camioneta" domain="[('vehiculos_ids.tipo','=', 'camioneta')]"/>
+                    <filter name="filtro_evaluacion_presenta" help="Con utilitaria" domain="[('vehiculos_ids.tipo','=', 'util')]"/>
+                    <filter name="filtro_evaluacion_presenta" help="Con utilitaria" domain="[('vehiculos_ids.tipo','=', 'coupe')]"/>
+                    <filter name="filtro_evaluacion_presenta" help="Con utilitaria" domain="[('vehiculos_ids.tipo','=', 'berlina')]"/>
+                </search>
             </field>
         </record>
 

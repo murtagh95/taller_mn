@@ -18,7 +18,15 @@ class Vehiculo(models.Model):
     kilometraje = fields.Integer(string='Kilometraje', required=True)
     anio = fields.Integer(string='Año', required=True)
     color = fields.Char(string='Color', required=True)
-    tipo = fields.Char(string='Tipo', required=True)
+    tipo = fields.Selection(
+        [('sedan', 'Sedan'),
+         ('camioneta', 'Camioneta'),
+         ('coupe', 'Coupé'),
+         ('berlina', 'Berlina'),
+         ('util', 'Utilitaria')],
+        string='Tipo',
+        required=True
+    )
     patente = fields.Char(string='Patente', required=True)
 
     _sql_constraints = [
