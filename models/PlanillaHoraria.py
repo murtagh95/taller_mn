@@ -1,4 +1,4 @@
-from odoo import fields, models, api
+from odoo import fields, models
 
 
 class PlanillaHoraria(models.Model):
@@ -16,3 +16,4 @@ class PlanillaHoraria(models.Model):
     inicio_desc = fields.Float(string='Inicio Descanso')
     fin_desc = fields.Float(string='Fin Descanso')
     name = fields.Char(related='empleado_id.name')
+    imagen = fields.Binary(related='empleado_id.imagen')

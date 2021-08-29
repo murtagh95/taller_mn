@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista Arbol del PLANILLA HORARIA -->
+        <record id="view_taller_planilla_horaria_tree" model="ir.ui.view">
+            <field name="name">taller.planilla_horaria.tree</field>
+            <field name="model">taller.planilla_horaria</field>
+            <field name="arch" type="xml">
+                <tree string="Planilla horaria">
+                    <field name="name"/>
+                    <field name="fecha"/>
+                    <field name="hora_ingreso" widget="float_time"/>
+                    <field name="hora_salida" widget="float_time"/>
+                    <field name="inicio_desc" widget="float_time"/>
+                    <field name="fin_desc" widget="float_time"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista Formulario del PLANILLA HORARIA -->
+        <record id="view_taller_planilla_horaria_form" model="ir.ui.view">
+            <field name="name">taller.planilla_horaria.form</field>
+            <field name="model">taller.planilla_horaria</field>
+            <field name="arch" type="xml">
+                <form string="Planilla horaria">
+                    <sheet>
+                        <field name="imagen" widget="image" class="oe_avatar"/>
+                        <div class="oe_title">
+                            <label for="empleado_id" class="oe_edit_only"/>
+                            <h1>
+                                <field name="empleado_id"/>
+                            </h1>
+                        </div>
+                        <label for="fecha" class="oe_edit_only"/>
+                        <h2>
+                            <field name="fecha"/>
+                        </h2>
+
+                        <group>
+                            <group>
+                                <field name="hora_ingreso"
+                                       widget="float_time"/>
+                                <field name="hora_salida" widget="float_time"/>
+                            </group>
+                            <group>
+                                <field name="inicio_desc" widget="float_time"/>
+                                <field name="fin_desc" widget="float_time"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Vista Kanban del PLANILLA HORARIA -->
+        <record id="view_taller_planilla_horaria_kanban" model="ir.ui.view">
+            <field name="name">taller.planilla_horaria.kanban</field>
+            <field name="model">taller.planilla_horaria</field>
+            <field name="arch" type="xml">
+                <kanban string="Planilla horaria"
+                        class="o_emphasize_colors o_kanban_dashboard o_slide_kanban breadcrumb_item active"
+                        edit="false" sample="1">
+                    <field name="imagen"/>
+                    <field name="name"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+                                <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                    <div class="o_kanban_card_header">
+                                        <div class="o_primary">
+                                            <a type="edit" class="mr-auto">
+                                                <span><field name="name"
+                                                             class="o_primary"/></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="container o_kanban_card_content mt5">
+                                        <div class="row mb16">
+                                            <div class="col-6 o_kanban_primary_right">
+                                                <div class="d-flex">
+                                                    <a class="mr-auto">
+                                                        Ingreso:</a>
+                                                    <span><field
+                                                            name="hora_ingreso"
+                                                            widget="float_time"/></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-6 o_kanban_primary_right">
+                                                <div class="d-flex">
+                                                    <a class="mr-auto">
+                                                        Salida:</a>
+                                                    <span><field
+                                                            name="hora_salida"
+                                                            widget="float_time"/></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <!-- Vista Búsqueda del PLANILLA HORARIA -->
+        <record id="view_taller_planilla_horaria_search" model="ir.ui.view">
+            <field name="name">taller.planilla_horaria.search</field>
+            <field name="model">taller.planilla_horaria</field>
+            <field name="arch" type="xml">
+                <search string="Búsqueda Planilla horaria">
+                    <field name="name" string="Empleado"
+                           filter_domain="['|', '|', '|', '|', ('name','ilike',self), ('empleado_id.cuil','ilike',self), ('empleado_id.tipo','ilike',self), ('empleado_id.mail','ilike',self), ('empleado_id.telefono','ilike',self)]"/>
+                    <field name="fecha" string="Fecha"
+                           filter_domain="[('fecha','ilike',self)]"/>
+
+                    <separator/>
+                    <filter name="dia_actual" help="Con fecha hoy"
+                            domain="['&amp;',('fecha', '&lt;=', context_today().strftime('%Y-%m-%d')), ('fecha', '&gt;=', context_today().strftime('%Y-%m-%d'))]"/>
+
+                    <group expand='0' string='Agrupar por...'>
+                        <filter string='Empleado' name="empleado_id"
+                                context="{'group_by': 'empleado_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>

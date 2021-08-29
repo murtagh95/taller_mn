@@ -20,6 +20,7 @@
               'views/cliente.xml',
               'views/vehiculo.xml',
               'views/empleado.xml',
+              'views/planilla_horaria.xml',
               'views/menu.xml',
 
 

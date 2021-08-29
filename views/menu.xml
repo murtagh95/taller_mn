@@ -28,6 +28,15 @@
             <field name="view_id" ref="view_taller_empleado_tree" />
         </record>
 
+        <!-- ACTION WINDOWS de PLANILLA HORARIA -->
+        <record id="action_taller_planilla_horaria" model="ir.actions.act_window">
+            <field name="name">Planilla horaria</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">taller.planilla_horaria</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="view_id" ref="view_taller_planilla_horaria_tree" />
+        </record>
+
 
         <menuitem id="taller_main" name="Taller" sequence="1" web_icon="repositorio_aden,static/description/menu.png" />
 
@@ -49,10 +58,10 @@
                   name="Empleado"
                   parent="taller_empleado" sequence="1"
                   action="action_taller_empleado" />
-<!--        <menuitem id="taller_vehiculo_menu"-->
-<!--                  name="Vehiculo"-->
-<!--                  parent="taller_cliente" sequence="1"-->
-<!--                  action="action_taller_vehiculo" />-->
+        <menuitem id="taller_planilla_horaria_menu"
+                  name="Planilla Horaria"
+                  parent="taller_empleado" sequence="1"
+                  action="action_taller_planilla_horaria" />
 
     </data>
 </odoo>
