@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista Arbol del ORDEN REPARACIÓN -->
+        <record id="view_taller_orden_reparacion_tree" model="ir.ui.view">
+            <field name="name">taller.orden_reparacion.tree</field>
+            <field name="model">taller.orden_reparacion</field>
+            <field name="arch" type="xml">
+                <tree string="Orden Reparación"
+                      decoration-muted="estado == 'pres' "
+                      decoration-info="estado == 'desa' "
+                      decoration-warning="estado == 'compr' "
+                      decoration-danger="estado == 'arma' "
+                      decoration-success="estado == 'fina' "
+                >
+                    <field name="name"/>
+                    <field name="estado"/>
+                    <field name="insumos_ids" widget="many2many_tags"/>
+                    <field name="empleado_ids" widget="many2many_tags" />
+                    <field name="ingreso_vehiculo_id" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista Formulario del ORDEN REPARACIÓN -->
+        <record id="view_taller_orden_reparacion_form" model="ir.ui.view">
+            <field name="name">taller.orden_reparacion.form</field>
+            <field name="model">taller.orden_reparacion</field>
+            <field name="arch" type="xml">
+                <form string="Orden Reparación">
+                    <header>
+                        <field name="estado" widget="statusbar" options="{'clickable': '1'}"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="insumos_ids" widget="many2many_tags"/>
+                                <field name="empleado_ids" widget="many2many_tags" />
+                                <field name="ingreso_vehiculo_id" widget="many2many_tags"/>
+                                <separator string="Descripción"/>
+                            </group>
+                            <field name="descripcion" widget="html" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista Búsqueda del ORDEN REPARACIÓN -->
+<!--        <record id="view_taller_orden_reparacion_search" model="ir.ui.view">-->
+<!--            <field name="name">taller.orden_reparacion.search</field>-->
+<!--            <field name="model">taller.orden_reparacion</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search string="Búsqueda Orden Reparación">-->
+<!--                    <field name="name" string="Proveedor"-->
+<!--                           filter_domain="[('name','ilike',self)]"/>-->
+<!--                    <field name="mail" string="Mail"-->
+<!--                           filter_domain="[('mail.mail','ilike',self)]"/>-->
+<!--                    <field name="cuit" string="CUIT"-->
+<!--                           filter_domain="[('cuit','ilike',self)]"/>-->
+<!--                    <field name="telefono" string="Teléfono"-->
+<!--                           filter_domain="[('telefono.numero','ilike',self)]"/>-->
+
+
+<!--                    <group expand='0' string='Agrupar por...'>-->
+<!--                        <filter string='Razon Social' name="razon_social"-->
+<!--                                context="{'group_by': 'razon_social'}"/>-->
+<!--                    </group>-->
+<!--                </search>-->
+<!--            </field>-->
+<!--        </record>-->
+
+    </data>
+</odoo>

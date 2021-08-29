@@ -46,12 +46,22 @@
             <field name="view_id" ref="view_taller_proveedor_tree" />
         </record>
 
+         <!-- ACTION WINDOWS de ORDEN REPARACIÓN -->
+        <record id="action_taller_orden_reparacion" model="ir.actions.act_window">
+            <field name="name">Orden Reparación</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">taller.orden_reparacion</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_taller_orden_reparacion_tree" />
+        </record>
+
 
         <menuitem id="taller_main" name="Taller" sequence="1" web_icon="repositorio_aden,static/description/menu.png" />
 
         <menuitem id="taller_cliente" name="Clientes" parent="taller_main" sequence="1" />
         <menuitem id="taller_empleado" name="Empleados" parent="taller_main" sequence="2"/>
         <menuitem id="taller_proveedor_factura" name="Proveedor/Facturas" parent="taller_main" sequence="3"/>
+        <menuitem id="taller_reparaciones" name="Reparaciones" parent="taller_main" sequence="4"/>
 
 
         <!-- MENU CLIENTE -->
@@ -80,6 +90,17 @@
                   name="Proveedor"
                   parent="taller_proveedor_factura" sequence="1"
                   action="action_taller_proveedor" />
+<!--        <menuitem id="taller_planilla_horaria_menu"-->
+<!--                  name="Planilla Horaria"-->
+<!--                  parent="taller_empleado" sequence="1"-->
+<!--                  action="action_taller_planilla_horaria" />-->
+
+
+        <!-- MENU ORDEN REPARACIÓN -->
+        <menuitem id="taller_orden_reparacion_menu"
+                  name="Orden Reparación"
+                  parent="taller_reparaciones" sequence="1"
+                  action="action_taller_orden_reparacion" />
 <!--        <menuitem id="taller_planilla_horaria_menu"-->
 <!--                  name="Planilla Horaria"-->
 <!--                  parent="taller_empleado" sequence="1"-->

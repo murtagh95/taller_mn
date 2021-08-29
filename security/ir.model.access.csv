@@ -1,10 +1,16 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 admin_taller_cliente,access taller.cliente,model_taller_cliente,base.group_user,1,1,1,1
 admin_taller_cliente_telefono,access taller.cliente_telefono,model_taller_cliente_telefono,base.group_user,1,1,1,1
+
 admin_taller_vehiculo,access taller.vehiculo,model_taller_vehiculo,base.group_user,1,1,1,1
+
 admin_taller_empleado,access taller.empleado,model_taller_empleado,base.group_user,1,1,1,1
 admin_taller_planilla_horaria,access taller.planilla_horaria,model_taller_planilla_horaria,base.group_user,1,1,1,1
+
 admin_taller_proveedor,access taller.proveedor,model_taller_proveedor,base.group_user,1,1,1,1
 admin_taller_telefono_proveedor,access taller.telefono_proveedor,model_taller_telefono_proveedor,base.group_user,1,1,1,1
 admin_taller_mail_proveedor,access taller.mail_proveedor,model_taller_mail_proveedor,base.group_user,1,1,1,1
+
 admin_taller_orden_reparacion,access taller.orden_reparacion,model_taller_orden_reparacion,base.group_user,1,1,1,1
+admin_taller_ingreso_vehiculo,access taller.ingreso_vehiculo,model_taller_ingreso_vehiculo,base.group_user,1,1,1,1
+admin_taller_insumo,access taller.insumo,model_taller_insumo,base.group_user,1,1,1,1

@@ -22,6 +22,7 @@
               'views/empleado.xml',
               'views/planilla_horaria.xml',
               'views/proveedor.xml',
+              'views/orden_reparacion.xml',
               'views/menu.xml',
 
 

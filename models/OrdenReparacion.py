@@ -12,6 +12,7 @@ class OrdenReparacion(models.Model):
          ('arma', 'Armando'),
          ('fina', 'Finalizado')],
         string='Estado',
+        default='pres',
         required=True
     )
     descripcion = fields.Html(string='Descripción')
@@ -20,8 +21,7 @@ class OrdenReparacion(models.Model):
         relation='orden_reparacion_insumo_rel',
         column1='orden_reparacion_id',
         column2='insumo_id',
-        string='Insumos',
-        required=True
+        string='Insumos'
     )
     empleado_ids = fields.Many2many(
         'taller.empleado',
@@ -42,9 +42,12 @@ class OrdenReparacion(models.Model):
         """ Se calcula el nombre según el estado. """
         for rec in self:
             estado = rec.estado or ""
-            cliente = rec.ingreso_vehiculo_id[0].cliente_id.name or ""
+            if rec.ingreso_vehiculo_id:
+                cliente = rec.ingreso_vehiculo_id[0].cliente_id.name
+            else:
+                cliente = ""
 
-            if rec.estado:
+            if rec.estado or cliente:
                 rec.name = str(estado) + " - " + str(cliente)
             else:
                 rec.name = ""
