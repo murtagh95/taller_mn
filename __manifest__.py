@@ -23,6 +23,7 @@
               'views/planilla_horaria.xml',
               'views/proveedor.xml',
               'views/orden_reparacion.xml',
+              'views/ingresoVehiculo.xml',
               'views/menu.xml',
 
 

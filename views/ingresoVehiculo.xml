@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista Arbol de INGRESO VEHICULO -->
+        <record id="view_taller_ingreso_vehiculo_tree" model="ir.ui.view">
+            <field name="name">taller.ingreso_vehiculo.tree</field>
+            <field name="model">taller.ingreso_vehiculo</field>
+            <field name="arch" type="xml">
+                <tree string="Ingreso Vehiculo">
+                    <field name="empleado_id"/>
+                    <field name="cliente_id"/>
+                    <field name="vehiculo_id"/>
+                    <field name="detalle_repa"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista Formulario de INGRESO VEHICULO -->
+        <record id="view_taller_ingreso_vehiculo_form" model="ir.ui.view">
+            <field name="name">taller.ingreso_vehiculo.form</field>
+            <field name="model">taller.ingreso_vehiculo</field>
+            <field name="arch" type="xml">
+                <form string="Ingreso Vehiculo">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="empleado_id"/>
+                                <field name="cliente_id"/>
+                            </group>
+                            <group>
+                                <field name="vehiculo_id"/>
+                                <field name="orden_reparacion_id"/>
+                            </group>
+                            <separator string="Detalle Reparación"/>
+                            <field name="detalle_repa"/>
+                            <notebook>
+                                <page string="Verificación Vehicular">
+                                    <group name="container">
+                                        <group string="Info Vehiculo" name="info_vehiculo">
+                                            <field name="herramienta"  widget="boolean_toggle" />
+                                            <field name="espejos"  widget="boolean_toggle" />
+                                            <field name="radio"  widget="boolean_toggle" />
+                                            <field name="gato"  widget="boolean_toggle" />
+                                        </group>
+                                        <group>
+                                            <field name="tapa_ruedas"  widget="boolean_toggle" />
+                                            <field name="vidrios"  widget="boolean_toggle" />
+                                            <field name="faros"  widget="boolean_toggle" />
+                                            <field name="molduras"  widget="boolean_toggle" />
+                                        </group>
+                                        <separator string="Detalle Vehiculo"/>
+                                        <field name="detalle_vehiculo"/>
+                                    </group>
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista Búsqueda de INGRESO VEHICULO -->
+        <record id="view_taller_ingreso_vehiculo_search" model="ir.ui.view">
+            <field name="name">taller.ingreso_vehiculo.search</field>
+            <field name="model">taller.ingreso_vehiculo</field>
+            <field name="arch" type="xml">
+                <search string="Búsqueda Ingreso Vehiculo">
+                    <field name="empleado_id" string="Empleado"
+                           filter_domain="['|','|','|',('empleado_id.name','ilike',self),('empleado_id.mail','ilike', self),('empleado_id.id','ilike', self),('empleado_id.cuil','ilike', self)]"/>
+                    <field name="cliente_id" string="Cliente"
+                           filter_domain="['|','|','|',('cliente_id.name','ilike',self),('cliente_id.mail','ilike', self),('cliente_id.id','ilike', self),('cliente_id.dni','ilike', self)]"/>
+                    <field name="vehiculo_id" string="Vehiculo"
+                           filter_domain="['|','|','|',('vehiculo_id.marca','ilike',self),('vehiculo_id.modelo','ilike', self),('vehiculo_id.id','ilike', self),('vehiculo_id.nro_motor','ilike', self)]"/>
+
+
+
+                    <group expand='0' string='Agrupar por...'>
+                        <filter string='Empleado' name="empleado"
+                                context="{'group_by': 'empleado_id'}"/>
+                        <filter string='Cliente' name="cliente"
+                                context="{'group_by': 'cliente_id'}"/>
+                        <filter string='Vehiculo' name="vehiculo"
+                                context="{'group_by': 'vehiculo_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>

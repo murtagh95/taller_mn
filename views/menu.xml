@@ -55,6 +55,15 @@
             <field name="view_id" ref="view_taller_orden_reparacion_tree" />
         </record>
 
+         <!-- ACTION WINDOWS de INGRESO VEHICULO -->
+        <record id="action_taller_ingreso_vehiculo" model="ir.actions.act_window">
+            <field name="name">Ingreso Vehiculo</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">taller.ingreso_vehiculo</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_taller_ingreso_vehiculo_tree" />
+        </record>
+
 
         <menuitem id="taller_main" name="Taller" sequence="1" web_icon="repositorio_aden,static/description/menu.png" />
 
@@ -101,10 +110,10 @@
                   name="Orden Reparación"
                   parent="taller_reparaciones" sequence="1"
                   action="action_taller_orden_reparacion" />
-<!--        <menuitem id="taller_planilla_horaria_menu"-->
-<!--                  name="Planilla Horaria"-->
-<!--                  parent="taller_empleado" sequence="1"-->
-<!--                  action="action_taller_planilla_horaria" />-->
+        <menuitem id="taller_ingreso_vehiculo_menu"
+                  name="Ingreso Vehiculo"
+                  parent="taller_reparaciones" sequence="1"
+                  action="action_taller_ingreso_vehiculo" />
 
     </data>
 </odoo>

@@ -7,7 +7,6 @@
             <field name="model">taller.orden_reparacion</field>
             <field name="arch" type="xml">
                 <tree string="Orden Reparación"
-                      decoration-muted="estado == 'pres' "
                       decoration-info="estado == 'desa' "
                       decoration-warning="estado == 'compr' "
                       decoration-danger="estado == 'arma' "
@@ -47,28 +46,22 @@
         </record>
 
         <!-- Vista Búsqueda del ORDEN REPARACIÓN -->
-<!--        <record id="view_taller_orden_reparacion_search" model="ir.ui.view">-->
-<!--            <field name="name">taller.orden_reparacion.search</field>-->
-<!--            <field name="model">taller.orden_reparacion</field>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <search string="Búsqueda Orden Reparación">-->
-<!--                    <field name="name" string="Proveedor"-->
-<!--                           filter_domain="[('name','ilike',self)]"/>-->
-<!--                    <field name="mail" string="Mail"-->
-<!--                           filter_domain="[('mail.mail','ilike',self)]"/>-->
-<!--                    <field name="cuit" string="CUIT"-->
-<!--                           filter_domain="[('cuit','ilike',self)]"/>-->
-<!--                    <field name="telefono" string="Teléfono"-->
-<!--                           filter_domain="[('telefono.numero','ilike',self)]"/>-->
+        <record id="view_taller_orden_reparacion_search" model="ir.ui.view">
+            <field name="name">taller.orden_reparacion.search</field>
+            <field name="model">taller.orden_reparacion</field>
+            <field name="arch" type="xml">
+                <search string="Búsqueda Orden Reparación">
+                    <field name="ingreso_vehiculo_id" string="Cliente"
+                           filter_domain="[('ingreso_vehiculo_id.cliente_id.name','ilike',self)]"/>
 
 
-<!--                    <group expand='0' string='Agrupar por...'>-->
-<!--                        <filter string='Razon Social' name="razon_social"-->
-<!--                                context="{'group_by': 'razon_social'}"/>-->
-<!--                    </group>-->
-<!--                </search>-->
-<!--            </field>-->
-<!--        </record>-->
+                    <group expand='0' string='Agrupar por...'>
+                        <filter string='Insumos' name="insumos"
+                                context="{'group_by': 'insumos_ids'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
 
     </data>
 </odoo>

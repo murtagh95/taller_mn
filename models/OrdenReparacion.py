@@ -41,13 +41,12 @@ class OrdenReparacion(models.Model):
     def _calcular_nombre(self):
         """ Se calcula el nombre según el estado. """
         for rec in self:
-            estado = rec.estado or ""
             if rec.ingreso_vehiculo_id:
                 cliente = rec.ingreso_vehiculo_id[0].cliente_id.name
             else:
                 cliente = ""
 
-            if rec.estado or cliente:
-                rec.name = str(estado) + " - " + str(cliente)
+            if cliente:
+                rec.name = str(cliente)
             else:
                 rec.name = ""
