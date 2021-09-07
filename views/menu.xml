@@ -64,6 +64,15 @@
             <field name="view_id" ref="view_taller_ingreso_vehiculo_tree" />
         </record>
 
+         <!-- ACTION WINDOWS de FACTURA COMPRA -->
+        <record id="action_taller_factura_compra" model="ir.actions.act_window">
+            <field name="name">Factura Compra</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">taller.factura_compra</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_taller_factura_compra_tree" />
+        </record>
+
 
         <menuitem id="taller_main" name="Taller" sequence="1" web_icon="repositorio_aden,static/description/menu.png" />
 
@@ -99,10 +108,10 @@
                   name="Proveedor"
                   parent="taller_proveedor_factura" sequence="1"
                   action="action_taller_proveedor" />
-<!--        <menuitem id="taller_planilla_horaria_menu"-->
-<!--                  name="Planilla Horaria"-->
-<!--                  parent="taller_empleado" sequence="1"-->
-<!--                  action="action_taller_planilla_horaria" />-->
+        <menuitem id="taller_factura_compra_menu"
+                  name="Factura Compra"
+                  parent="taller_proveedor_factura" sequence="2"
+                  action="action_taller_factura_compra" />
 
 
         <!-- MENU ORDEN REPARACIÓN -->

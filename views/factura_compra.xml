@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista Arbol del ORDEN REPARACIÓN -->
+        <record id="view_taller_factura_compra_tree" model="ir.ui.view">
+            <field name="name">taller.factura_compra.tree</field>
+            <field name="model">taller.factura_compra</field>
+            <field name="arch" type="xml">
+                <tree string="Factura Compra">
+                    <field name="tipo"/>
+                    <field name="serie"/>
+                    <field name="nro_factura"/>
+                    <field name="proveedor_id" />
+                    <field name="fecha"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista Formulario del ORDEN REPARACIÓN -->
+        <record id="view_taller_factura_compra_form" model="ir.ui.view">
+            <field name="name">taller.factura_compra.form</field>
+            <field name="model">taller.factura_compra</field>
+            <field name="arch" type="xml">
+                <form string="Factura Compra">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="tipo"/>
+                                <field name="serie"/>
+                                <field name="nro_factura"/>
+                            </group>
+                            <group>
+                                <field name="proveedor_id" />
+                                <field name="orden_reparacion_id" />
+                                <field name="remito" />
+                                <field name="fecha"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+<!--        &lt;!&ndash; Vista Búsqueda del ORDEN REPARACIÓN &ndash;&gt;-->
+<!--        <record id="view_taller_factura_compra_search" model="ir.ui.view">-->
+<!--            <field name="name">taller.factura_compra.search</field>-->
+<!--            <field name="model">taller.factura_compra</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search string="Búsqueda Factura Compra">-->
+<!--                    <field name="ingreso_vehiculo_id" string="Cliente"-->
+<!--                           filter_domain="[('ingreso_vehiculo_id.cliente_id.name','ilike',self)]"/>-->
+
+
+<!--                    <group expand='0' string='Agrupar por...'>-->
+<!--                        <filter string='Insumos' name="insumos"-->
+<!--                                context="{'group_by': 'insumos_ids'}"/>-->
+<!--                    </group>-->
+<!--                </search>-->
+<!--            </field>-->
+<!--        </record>-->
+
+    </data>
+</odoo>

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from . import Insumo
-# from . import Factura
+from . import Factura
 from . import Cliente
 from . import Empleado
 from . import Vehiculo
