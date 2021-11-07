@@ -19,7 +19,7 @@ class Factura(models.Model):
             ('serie', '=', self.serie),
             ('nro_factura', '=', self.nro_factura),
         ])
-        if factura:
+        if factura and factura.id != self.id:
             raise ValidationError(
                 "No se puede crear la factura debido que ya existe una factura"
                 " con este tipo, serie y nro factura.")
@@ -65,8 +65,8 @@ class FacturaVenta(models.Model):
                                  required=True,
                                  ondelete='cascade')
     cliente_id = fields.Many2one('taller.cliente',
-                                 string='Proveedor',
-                                 required=True)
+                                 string='Cliente',
+                                 related='orden_reparacion_id.ingreso_vehiculo_id.cliente_id')
     orden_reparacion_id = fields.Many2one('taller.orden_reparacion',
                                           string='Orden Reparación',
                                           required=True)

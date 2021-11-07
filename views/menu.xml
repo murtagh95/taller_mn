@@ -73,6 +73,15 @@
             <field name="view_id" ref="view_taller_factura_compra_tree" />
         </record>
 
+        <!-- ACTION WINDOWS de FACTURA VENTA -->
+        <record id="action_taller_factura_venta" model="ir.actions.act_window">
+            <field name="name">Factura Venta</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">taller.factura_venta</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_taller_factura_venta_tree" />
+        </record>
+
         <!-- ACTION WINDOWS de INSUMOS -->
         <record id="action_taller_insumo" model="ir.actions.act_window">
             <field name="name">Insumo</field>
@@ -121,6 +130,10 @@
                   name="Factura Compra"
                   parent="taller_proveedor_factura" sequence="2"
                   action="action_taller_factura_compra" />
+        <menuitem id="taller_factura_venta_menu"
+                  name="Factura Venta"
+                  parent="taller_proveedor_factura" sequence="2"
+                  action="action_taller_factura_venta" />
 
 
         <!-- MENU ORDEN REPARACIÓN -->

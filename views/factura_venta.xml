@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista Arbol del Factura Venta -->
+        <record id="view_taller_factura_venta_tree" model="ir.ui.view">
+            <field name="name">taller.factura_venta.tree</field>
+            <field name="model">taller.factura_venta</field>
+            <field name="arch" type="xml">
+                <tree string="Factura venta">
+                    <field name="tipo"/>
+                    <field name="serie"/>
+                    <field name="nro_factura"/>
+                    <field name="cliente_id" />
+                    <field name="orden_reparacion_id" />
+                    <field name="precio" />
+                    <field name="create_date" string="Fecha Creación" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista Formulario del Factura venta -->
+        <record id="view_taller_factura_venta_form" model="ir.ui.view">
+            <field name="name">taller.factura_venta.form</field>
+            <field name="model">taller.factura_venta</field>
+            <field name="arch" type="xml">
+                <form string="Factura venta">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="tipo"/>
+                                <field name="serie"/>
+                                <field name="nro_factura"/>
+                            </group>
+                            <group>
+                                <field name="orden_reparacion_id" />
+                                <field name="cliente_id" />
+                                <field name="precio" />
+                                <field name="create_date" string="Fecha Creación" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>
