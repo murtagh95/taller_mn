@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista Arbol del Insumo -->
+        <record id="view_taller_insumo_tree" model="ir.ui.view">
+            <field name="name">taller.insumo.tree</field>
+            <field name="model">taller.insumo</field>
+            <field name="arch" type="xml">
+                <tree string="Insumo">
+                    <field name="name"/>
+                    <field name="codigo"/>
+                    <field name="marca" />
+                    <field name="costo"  />
+                    <field name="lote" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista Formulario del Insumo -->
+        <record id="view_taller_insumo_form" model="ir.ui.view">
+            <field name="name">taller.insumo.form</field>
+            <field name="model">taller.insumo</field>
+            <field name="arch" type="xml">
+                <form string="Insumo">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="codigo"/>
+                                <field name="marca" />
+                            </group>
+                            <group>
+                                <field name="costo"  />
+                                <field name="lote" />
+                                <field name="categoria_id"  />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista Formulario de Categoria Insumo -->
+        <record id="view_taller_categoria_insumo_form" model="ir.ui.view">
+            <field name="name">taller.categoria_insumo.form</field>
+            <field name="model">taller.categoria_insumo</field>
+            <field name="arch" type="xml">
+                <form string="Insumo">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="active"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -10,18 +10,13 @@ class Insumo(models.Model):
     marca = fields.Char(string='Marca')
     costo = fields.Integer(string='Costo')
     lote = fields.Char(string='Lote')
-    tipo_id = fields.One2many(
-        'taller.categoria_insumo',
-        'insumo_ids',
-        string='Tipos'
-    )
+    categoria_id = fields.Many2one('taller.categoria_insumo',
+                                   string='Categoria')
 
 
 class CategoriaInsumo(models.Model):
     _name = 'taller.categoria_insumo'
     _description = 'Categoría Insumo'
-
-    insumo_ids = fields.Many2one('taller.insumo',
-                                 string='Código insumo')
+    
     name = fields.Char(string='Nombre')
-    active = fields.Boolean(string='Activo')
+    active = fields.Boolean(string='Activo', default=True)

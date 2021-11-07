@@ -14,6 +14,7 @@ admin_taller_mail_proveedor,access taller.mail_proveedor,model_taller_mail_prove
 admin_taller_orden_reparacion,access taller.orden_reparacion,model_taller_orden_reparacion,base.group_user,1,1,1,1
 admin_taller_ingreso_vehiculo,access taller.ingreso_vehiculo,model_taller_ingreso_vehiculo,base.group_user,1,1,1,1
 admin_taller_insumo,access taller.insumo,model_taller_insumo,base.group_user,1,1,1,1
+admin_taller_categoria_insumo,access taller.categoria_insumo,model_taller_categoria_insumo,base.group_user,1,1,1,1
 
 admin_taller_factura,access taller.factura,model_taller_factura,base.group_user,1,1,1,1
 admin_taller_factura_compra,access taller.factura_compra,model_taller_factura_compra,base.group_user,1,1,1,1

@@ -25,6 +25,7 @@
               'views/orden_reparacion.xml',
               'views/ingresoVehiculo.xml',
               'views/factura_compra.xml',
+              'views/insumo.xml',
               'views/menu.xml',
 
 

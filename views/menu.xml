@@ -73,6 +73,15 @@
             <field name="view_id" ref="view_taller_factura_compra_tree" />
         </record>
 
+        <!-- ACTION WINDOWS de INSUMOS -->
+        <record id="action_taller_insumo" model="ir.actions.act_window">
+            <field name="name">Insumo</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">taller.insumo</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_taller_insumo_tree" />
+        </record>
+
 
         <menuitem id="taller_main" name="Taller" sequence="1" web_icon="repositorio_aden,static/description/menu.png" />
 
@@ -123,6 +132,10 @@
                   name="Ingreso Vehiculo"
                   parent="taller_reparaciones" sequence="1"
                   action="action_taller_ingreso_vehiculo" />
+        <menuitem id="taller_insumo_menu"
+                  name="Insumo"
+                  parent="taller_reparaciones" sequence="1"
+                  action="action_taller_insumo" />
 
     </data>
 </odoo>
