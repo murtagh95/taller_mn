@@ -29,7 +29,6 @@
                             </group>
                             <group>
                                 <field name="vehiculo_id"/>
-                                <field name="orden_reparacion_id"/>
                             </group>
                             <separator string="Detalle Reparación"/>
                             <field name="detalle_repa"/>

@@ -16,7 +16,7 @@
                     <field name="estado"/>
                     <field name="insumos_ids" widget="many2many_tags"/>
                     <field name="empleado_ids" widget="many2many_tags" />
-                    <field name="ingreso_vehiculo_id" widget="many2many_tags"/>
+                    <field name="ingreso_vehiculo_id" />
                 </tree>
             </field>
         </record>
@@ -35,7 +35,7 @@
                             <group>
                                 <field name="insumos_ids" widget="many2many_tags"/>
                                 <field name="empleado_ids" widget="many2many_tags" />
-                                <field name="ingreso_vehiculo_id" widget="many2many_tags"/>
+                                <field name="ingreso_vehiculo_id"  />
                                 <separator string="Descripción"/>
                             </group>
                             <field name="descripcion" widget="html" />

@@ -31,9 +31,8 @@ class OrdenReparacion(models.Model):
         string='Empleados',
         required=True
     )
-    ingreso_vehiculo_id = fields.One2many(
+    ingreso_vehiculo_id = fields.Many2one(
         'taller.ingreso_vehiculo',
-        'orden_reparacion_id',
         string='Ingreso Vehiculo'
     )
     name = fields.Char(compute='_calcular_nombre')

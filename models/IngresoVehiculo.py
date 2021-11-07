@@ -15,8 +15,8 @@ class IngresoVehiculo(models.Model):
     vehiculo_id = fields.Many2one('taller.vehiculo',
                                   string='Vehiculo',
                                   required=True)
-    orden_reparacion_id = fields.Many2one('taller.orden_reparacion',
-                                          string='Orden Reparación')
+    #orden_reparacion_id = fields.Many2one('taller.orden_reparacion',
+    #                                      string='Orden Reparación')
 
     # Campo Booleanos de verificación vehicular
     herramienta = fields.Boolean(stirng='Tiene Herramientas',default=False)
